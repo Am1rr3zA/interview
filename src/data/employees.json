@@ -1,0 +1,20 @@
+[
+  {
+    "name": "John Doe",
+    "age": 28,
+    "department": "Engineering",
+    "salary": 75000.5
+  },
+  {
+    "name": "Jane Smith",
+    "age": 32,
+    "department": "Marketing",
+    "salary": 65000.0
+  },
+  {
+    "name": "Bob Johnson",
+    "age": 45,
+    "department": "Sales",
+    "salary": 80000
+  }
+]

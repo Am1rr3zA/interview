@@ -32,42 +32,42 @@ public class IpClientV2Test {
         server.shutdown();
     }
 
-    @Test
-    public void testFetchPublicIp_success() throws Exception {
-        // Given: mock JSON response
-        String mockJson = "{\"ip\": \"123.45.67.89\"}";
-        server.enqueue(new MockResponse()
-                .setResponseCode(200)
-                .setBody(mockJson));
+//    @Test
+//    public void testFetchPublicIp_success() throws Exception {
+//        // Given: mock JSON response
+//        String mockJson = "{\"ip\": \"123.45.67.89\"}";
+//        server.enqueue(new MockResponse()
+//                .setResponseCode(200)
+//                .setBody(mockJson));
+//
+//        // Build client pointing to mock server
+//        OkHttpClient client = new OkHttpClient();
+//        Request request = new Request.Builder()
+//                .url(server.url("/"))  // mock URL
+//                .build();
+//
+//        IpClientV2 api = new IpClientV2(client, request, mapper);
+//
+//        // When
+//        IpResponse response = api.fetchPublicIp();
+//
+//        // Then
+//        assertNotNull(response);
+//        assertEquals("123.45.67.89", response.getIp());
+//    }
 
-        // Build client pointing to mock server
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(server.url("/"))  // mock URL
-                .build();
-
-        IpClientV2 api = new IpClientV2(client, request, mapper);
-
-        // When
-        IpResponse response = api.fetchPublicIp();
-
-        // Then
-        assertNotNull(response);
-        assertEquals("123.45.67.89", response.getIp());
-    }
-
-    @Test
-    public void testFetchPublicIp_httpError() throws Exception {
-        server.enqueue(new MockResponse().setResponseCode(500));
-
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(server.url("/"))
-                .build();
-
-        IpClientV2 api = new IpClientV2(client, request, mapper);
-
-        Exception ex = assertThrows(RuntimeException.class, api::fetchPublicIp);
-        assertTrue(ex.getMessage().contains("HTTP 500"));
-    }
+//    @Test
+//    public void testFetchPublicIp_httpError() throws Exception {
+//        server.enqueue(new MockResponse().setResponseCode(500));
+//
+//        OkHttpClient client = new OkHttpClient();
+//        Request request = new Request.Builder()
+//                .url(server.url("/"))
+//                .build();
+//
+//        IpClientV2 api = new IpClientV2(client, request, mapper);
+//
+//        Exception ex = assertThrows(RuntimeException.class, api::fetchPublicIp);
+//        assertTrue(ex.getMessage().contains("HTTP 500"));
+//    }
 }

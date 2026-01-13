@@ -1,0 +1,7 @@
+{
+  "name": "John Doe",
+  "age": 28,
+  "department": "Engineering",
+  "salary": 75000,
+  "active": true
+}
